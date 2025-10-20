@@ -13,6 +13,7 @@ from ics import Calendar, Event
 import pytz
 from flask import Flask, jsonify, request, session, make_response, send_from_directory, Response, g
 from functools import wraps
+from fnmatch import fnmatch
 from flask_cors import CORS
 import mysql.connector
 from mysql.connector import pooling
@@ -34,15 +35,35 @@ with open('/etc/secrets/hwm-session-secret', encoding='utf-8') as f:
     app.secret_key = f.read().strip()
 
 # ---------- CORS ----------
+ALLOWED_CORS_ORIGINS = [
+    "https://homework-manager.akzuwo.ch",
+    "https://hw-manager.akzuwo.ch",
+    "https://hwm-beta.akzuwo.ch",
+]
+ALLOWED_CORS_ORIGIN_PATTERNS = [
+    "https://*.homework-manager.pages.dev",
+]
+
+
+def _resolve_cors_origin() -> Optional[str]:
+    origin = request.headers.get("Origin")
+    if not origin:
+        return None
+
+    if origin in ALLOWED_CORS_ORIGINS:
+        return origin
+
+    for pattern in ALLOWED_CORS_ORIGIN_PATTERNS:
+        if fnmatch(origin, pattern):
+            return origin
+
+    return None
+
+
 CORS(
     app,
     supports_credentials=True,
-    resources={r"/*": {"origins": [
-        "https://*.homework-manager.pages.dev",
-        "https://homework-manager.akzuwo.ch",
-        "https://hw-manager.akzuwo.ch",
-        "https://hwm-beta.akzuwo.ch"
-    ]}},
+    resources={r"/*": {"origins": ALLOWED_CORS_ORIGINS + ALLOWED_CORS_ORIGIN_PATTERNS}},
     methods=["GET","HEAD","POST","OPTIONS","PUT","DELETE"],
     allow_headers=["Content-Type"]
 )
@@ -1925,12 +1946,17 @@ def delete_entry(id):
 
 # CORS‐Preflight‐Helper
 def _cors_preflight():
+    origin = _resolve_cors_origin()
+    if origin is None:
+        return make_response("", 403)
+
     resp = make_response()
     resp.headers.update({
-        'Access-Control-Allow-Origin':  request.headers.get('Origin', '*'),
+        'Access-Control-Allow-Origin': origin,
         'Access-Control-Allow-Methods': 'GET,POST,PUT,DELETE,OPTIONS',
         'Access-Control-Allow-Headers': 'Content-Type',
-        'Access-Control-Allow-Credentials': 'true'
+        'Access-Control-Allow-Credentials': 'true',
+        'Vary': 'Origin',
     })
     return resp, 200
 
@@ -2107,15 +2133,27 @@ def add_entry():
         
 @app.after_request
 def add_cors_headers(response):
-    response.headers['Access-Control-Allow-Origin']  = '*'
+    origin = _resolve_cors_origin()
+    if origin is not None:
+        response.headers['Access-Control-Allow-Origin'] = origin
+        response.headers['Access-Control-Allow-Credentials'] = 'true'
+
+        existing_vary = response.headers.get('Vary', '')
+        vary_values = [value.strip() for value in existing_vary.split(',') if value.strip()]
+        if 'Origin' not in vary_values:
+            vary_values.append('Origin')
+        if vary_values:
+            response.headers['Vary'] = ', '.join(vary_values)
+    else:
+        response.headers.pop('Access-Control-Allow-Origin', None)
+        response.headers.pop('Access-Control-Allow-Credentials', None)
+
     response.headers['Access-Control-Allow-Methods'] = 'GET,POST,PUT,DELETE,OPTIONS'
     response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
-    response.headers['Access-Control-Allow-Credentials'] = 'true'
     return response
 
 # ---------- SERVER START ----------
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=False)
-
 
 

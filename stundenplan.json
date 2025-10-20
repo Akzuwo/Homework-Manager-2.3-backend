@@ -1,0 +1,101 @@
+{
+  "Monday": [
+      {"start": "00:00", "end": "08:00", "fach": "Unterrichtsfrei", "raum": "-"},
+      {"start": "08:00", "end": "08:45", "fach": "Geschichte", "raum": "114"},
+      {"start": "08:45", "end": "08:50", "fach": "Pause", "raum": "-"},
+      {"start": "08:50", "end": "09:35", "fach": "Geschichte", "raum": "114"},
+      {"start": "09:35", "end": "09:50", "fach": "Pause", "raum": "-"},
+      {"start": "09:50", "end": "10:35", "fach": "Sport", "raum": "T1/T2"},
+      {"start": "10:35", "end": "10:40", "fach": "Pause", "raum": "-"},
+      {"start": "10:40", "end": "11:25", "fach": "Sport", "raum": "T1/T7"},
+      {"start": "11:25", "end": "11:30", "fach": "Pause", "raum": "-"},
+      {"start": "12:15", "end": "13:10", "fach": "Mittagspause", "raum": "-"},
+      {"start": "13:10", "end": "13:55", "fach": "Deutsch", "raum": "E9"},
+      {"start": "13:55", "end": "14:00", "fach": "Pause", "raum": "-"},
+      {"start": "14:00", "end": "14:45", "fach": "Deutsch", "raum": "E9"},
+      {"start": "14:45", "end": "14:55", "fach": "Pause", "raum": "-"},
+      {"start": "15:00", "end": "15:45", "fach": "SPM-MA/SES/SMUü", "raum": "E7/E10/E016"},
+      {"start": "15:45", "end": "15:50", "fach": "Pause", "raum": "-"},
+      {"start": "15:50", "end": "16:35", "fach": "SPM-MA/SES/SMUü", "raum": "E7/E10/E016"},
+      {"start": "16:40", "end": "17:25", "fach": "Klassenstunde", "raum": "E8"},
+      {"start": "17:25", "end": "23:59", "fach": "Unterrichtsfrei", "raum": "-"}
+  ],
+  "Tuesday": [
+      {"start": "00:00", "end": "08:00", "fach": "Unterrichtsfrei", "raum": "-"},
+      {"start": "08:00", "end": "08:45", "fach": "Wirtschaft", "raum": "117"},
+      {"start": "08:45", "end": "08:50", "fach": "Pause", "raum": "-"},
+      {"start": "08:50", "end": "09:35", "fach": "Englisch", "raum": "E11"},
+      {"start": "09:35", "end": "09:50", "fach": "Pause", "raum": "-"},
+      {"start": "09:50", "end": "10:35", "fach": "Englisch", "raum": "E11"},
+      {"start": "10:35", "end": "10:40", "fach": "Pause", "raum": "-"},
+      {"start": "10:40", "end": "11:25", "fach": "Chemie", "raum": "206"},
+      {"start": "11:25", "end": "13:10", "fach": "Mittagspause", "raum": "-"},
+      {"start": "13:10", "end": "13:55", "fach": "SES/SMU", "raum": "E10/E016"},
+      {"start": "13:55", "end": "14:00", "fach": "Pause", "raum": "-"},
+      {"start": "14:00", "end": "14:45", "fach": "SES/SMU", "raum": "E10/E016"},
+      {"start": "14:45", "end": "23:59", "fach": "Unterrichtsfrei", "raum": "-"}
+  ],
+  "Wednesday": [
+      {"start": "00:00", "end": "08:00", "fach": "Unterrichtsfrei", "raum": "-"},
+      {"start": "08:00", "end": "08:45", "fach": "Freilektion", "raum": "-"},
+      {"start": "08:45", "end": "08:50", "fach": "Pause", "raum": "-"},
+      {"start": "08:50", "end": "09:35", "fach": "Freilektion", "raum": "-"},
+      {"start": "09:35", "end": "09:50", "fach": "Pause", "raum": "-"},
+      {"start": "09:50", "end": "10:35", "fach": "Mathematik", "raum": "E14"},
+      {"start": "10:35", "end": "10:40", "fach": "Pause", "raum": "-"},
+      {"start": "10:40", "end": "11:25", "fach": "Mathematik", "raum": "E14"},
+      {"start": "11:25", "end": "13:10", "fach": "Mittagspause", "raum": "-"},
+      {"start": "13:10", "end": "13:55", "fach": "Italienisch/Französisch", "raum": "17/E16"},
+      {"start": "13:55", "end": "14:00", "fach": "Pause", "raum": "-"},
+      {"start": "14:00", "end": "14:45", "fach": "Italienisch/Französisch", "raum": "17/E16"},
+      {"start": "14:45", "end": "15:00", "fach": "Pause", "raum": "-"},
+      {"start": "15:00", "end": "15:45", "fach": "Bildnerisches Gestalten/Musik", "raum": "22/E020"},
+      {"start": "15:45", "end": "15:50", "fach": "Pause"},
+      {"start": "15:50", "end": "16:35", "fach": "Bildnerisches Gestalten/Frei", "raum": "22/-"},
+      {"start": "16:35", "end": "23:59", "fach": "Unterrichtsfrei", "raum": "-"}
+  ],
+    "Thursday": [
+      {"start": "00:00", "end": "08:00", "fach": "Unterrichtsfrei", "raum": "-"},
+      {"start": "08:00", "end": "08:45", "fach": "Deutsch", "raum": "114"},
+      {"start": "08:45", "end": "08:50", "fach": "Pause", "raum": "-"},
+      {"start": "08:50", "end": "09:35", "fach": "Deutsch", "raum": "114"},
+      {"start": "09:35", "end": "09:50", "fach": "Pause", "raum": "-"},
+      {"start": "09:50", "end": "10:35", "fach": "Italienisch/Französisch", "raum": "214/E16"},
+      {"start": "10:35", "end": "10:40", "fach": "Pause", "raum": "-"},
+      {"start": "10:40", "end": "11:25", "fach": "Physik", "raum": "107"},
+      {"start": "11:25", "end": "13:10", "fach": "Mittagspause", "raum": "-"},
+      {"start": "13:10", "end": "13:55", "fach": "Ergänzungsfächer", "raum": "div."},
+      {"start": "13:55", "end": "14:00", "fach": "Pause", "raum": "-"},
+      {"start": "14:00", "end": "14:45", "fach": "Ergänzungsfächer", "raum": "div."},
+      {"start": "14:45", "end": "15:00", "fach": "Pause", "raum": "-"},
+      {"start": "15:00", "end": "15:45", "fach": "Chemie prak./Physik prak.", "raum": "211,20/112"},
+      {"start": "15:45", "end": "15:50", "fach": "Pause", "raum": "-"},
+      {"start": "15:50", "end": "16:35", "fach": "Chemie prak./Physik prak.", "raum": "211,20/112"},
+      {"start": "16:35", "end": "23:59", "fach": "Unterrichtsfrei", "raum": "-"}
+  ],
+  "Friday": [
+      {"start": "00:00", "end": "08:00", "fach": "Unterrichtsfrei", "raum": "-"},
+      {"start": "08:00", "end": "08:45", "fach": "SPM-PS/Frei", "raum": "110/-"},
+      {"start": "08:45", "end": "08:50", "fach": "Pause", "raum": "-"},
+      {"start": "08:50", "end": "09:35", "fach": "SPM-PS/Frei", "raum": "110/-"},
+      {"start": "09:35", "end": "09:50", "fach": "Pause", "raum": "-"},
+      {"start": "09:50", "end": "10:35", "fach": "Philosophie", "raum": "219"},
+      {"start": "10:35", "end": "10:40", "fach": "Pause", "raum": "-"},
+      {"start": "10:40", "end": "11:25", "fach": "Philosophie", "raum": "219"},
+      {"start": "11:25", "end": "13:10", "fach": "Mittagspause", "raum": "-"},
+      {"start": "13:10", "end": "13:55", "fach": "Englisch", "raum": "E11"},
+      {"start": "13:55", "end": "14:00", "fach": "Pause", "raum": "-"},
+      {"start": "14:00", "end": "14:45", "fach": "Mathematik", "raum": "E14"},
+      {"start": "14:45", "end": "15:00", "fach": "Pause", "raum": "-"},
+      {"start": "15:00", "end": "15:45", "fach": "Mathematik", "raum": "E14"},
+      {"start": "15:45", "end": "23:59", "fach": "Unterrichtsfrei", "raum": "-"}
+  ],
+  "Saturday": [
+      {"start": "00:00", "end": "23:59", "fach": "Wochenende (Samstag)", "raum": "-"}
+  ],
+  "Sunday": [
+      {"start": "00:00", "end": "23:59", "fach": "Wochenende (Sonntag)", "raum": "-"}
+  ]
+}
+
+

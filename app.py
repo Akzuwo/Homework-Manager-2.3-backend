@@ -205,12 +205,20 @@ CONTACT_RATE_LIMIT_WINDOW = int(os.getenv('CONTACT_RATE_LIMIT_WINDOW', 3600))
 CONTACT_RATE_LIMIT_MAX = int(os.getenv('CONTACT_RATE_LIMIT_MAX', 5))
 CONTACT_MIN_DURATION_MS = int(os.getenv('CONTACT_MIN_DURATION_MS', 3000))
 CONTACT_MIN_MESSAGE_LENGTH = int(os.getenv('CONTACT_MIN_MESSAGE_LENGTH', 20))
-CONTACT_SMTP_HOST = os.getenv('CONTACT_SMTP_HOST')
-CONTACT_SMTP_PORT = int(os.getenv('CONTACT_SMTP_PORT', 587))
-CONTACT_SMTP_USER = os.getenv('CONTACT_SMTP_USER')
-CONTACT_SMTP_PASSWORD = os.getenv('CONTACT_SMTP_PASSWORD')
-CONTACT_RECIPIENT = os.getenv('CONTACT_RECIPIENT') or CONTACT_SMTP_USER
-CONTACT_FROM_ADDRESS = os.getenv('CONTACT_FROM_ADDRESS', CONTACT_SMTP_USER or CONTACT_RECIPIENT)
+CONTACT_SMTP_HOST = os.getenv('CONTACT_SMTP_HOST') or CONTACT_SMTP_HOST
+_default_contact_smtp_port = CONTACT_SMTP_PORT
+_env_smtp_port = os.getenv('CONTACT_SMTP_PORT')
+if _env_smtp_port:
+    try:
+        CONTACT_SMTP_PORT = int(_env_smtp_port)
+    except (TypeError, ValueError):
+        CONTACT_SMTP_PORT = _default_contact_smtp_port
+else:
+    CONTACT_SMTP_PORT = _default_contact_smtp_port
+CONTACT_SMTP_USER = os.getenv('CONTACT_SMTP_USER') or CONTACT_SMTP_USER
+CONTACT_SMTP_PASSWORD = os.getenv('CONTACT_SMTP_PASSWORD') or CONTACT_SMTP_PASSWORD
+CONTACT_RECIPIENT = os.getenv('CONTACT_RECIPIENT') or CONTACT_RECIPIENT or CONTACT_SMTP_USER
+CONTACT_FROM_ADDRESS = os.getenv('CONTACT_FROM_ADDRESS') or CONTACT_FROM_ADDRESS or CONTACT_SMTP_USER or CONTACT_RECIPIENT
 CONTACT_EMAIL_REGEX = re.compile(r'^[^@\s]+@[^@\s]+\.[^@\s]+$')
 
 PRIMARY_TEST_BASE_URL = os.getenv('PRIMARY_TEST_BASE_URL', 'https://hwm-beta.akzuwo.ch')
@@ -2163,7 +2171,6 @@ def add_cors_headers(response):
 # ---------- SERVER START ----------
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=False)
-
 
 
 

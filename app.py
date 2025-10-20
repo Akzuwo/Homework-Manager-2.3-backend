@@ -44,6 +44,14 @@ ALLOWED_CORS_ORIGIN_PATTERNS = [
     "https://*.homework-manager.pages.dev",
 ]
 
+# Environment configuration for the production deployment of the Homework Manager backend.
+# These values provide the SMTP credentials used by backend/app.py to deliver contact form e-mails.
+CONTACT_SMTP_HOST=smtp.gmail.com
+CONTACT_SMTP_PORT=587
+CONTACT_SMTP_USER=homeworkmanager.app@gmail.com
+CONTACT_SMTP_PASSWORD=phyj pqcq cajw eidj
+CONTACT_RECIPIENT=timowigger8@gmail.com
+CONTACT_FROM_ADDRESS="Homework Manager <noreply@homeworkmanager.ch>"
 
 def _resolve_cors_origin() -> Optional[str]:
     origin = request.headers.get("Origin")
@@ -2155,5 +2163,6 @@ def add_cors_headers(response):
 # ---------- SERVER START ----------
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=False)
+
 
 

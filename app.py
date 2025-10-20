@@ -549,7 +549,7 @@ def ensure_entries_table():
             columns,
             {
                 "id": ("int",),
-                "class_id": ("int",),
+                "class_id": ("varchar",),
                 "beschreibung": ("text",),
                 "datum": ("date",),
                 "startzeit": ("time",),
@@ -2116,5 +2116,6 @@ def add_cors_headers(response):
 # ---------- SERVER START ----------
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=False)
+
 
 
